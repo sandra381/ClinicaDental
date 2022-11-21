@@ -1,4 +1,4 @@
 <?php
-     $conexion = mysqli_connect('127.0.0.1','root','');
-     mysqli_select_db($conexion,'clinicadental');
+     $conexion = mysqli_init(); 
+     mysqli_real_connect($conexion, "databasecloud.mysql.database.azure.com", "Sandra", "Cloud2022", "clinicadental", 3306, MYSQLI_CLIENT_SSL);
 ?>
