@@ -791,6 +791,7 @@ aside > div > div {
                                 $result = $date->format('Y-m-d-H-i-s');
                                 $krr    = explode('-', $result);
                                 $result = implode("", $krr);
+
                                 
                                 $resultano[0] = substr($result, 0, 4);
                                 $resultmes[0] = substr($result, 4, 2);
@@ -798,29 +799,72 @@ aside > div > div {
                                 $resultadoano = $resultano[0];
                                 $resultadomes = $resultmes[0];
                                 $resultadodia = $resultdia[0];
-                                if(($fecha_año >= $resultadoano)&&($trim >= $resultadomes)&&($fecha_dia>=$resultadodia)){
-                                    echo "<div class='main__wrapper'>";
-                                    echo "<main>";
-                                    echo "<aside>";
-                                    echo "<div>";
-                                    echo "<div class='issue'>Cita#".$fila["idcitas"]." </div>";
-                                    echo "<div class='date'>Dia Programado: ".$fila["fechacita"]."</div>";
-                                    echo "<div class='edition'> a las ".$fila["horacita"]."</div>";
-                                    echo "</div>";
-                                    echo "</aside>";
-                                    echo "<div class='main-text' multi-column>";
-                                    echo "<p><b>Tratamiento:</b> ".$fila["tratamientocita"]."<br>
-                                    <b>Costo del Tratamiento:</b> Q".$fila["montocita"].".00<br>
-                                    <b>Monto a Pagar:</b> Q".$fila["montopagar"].".00<br>
-                                    <b>Dentista:</b> ".$fila["nombresden"]."<br>
-                                    </p></div><a class='terrarium' target='_blank'>
-                                    <figure class='smile'><img src='https://images.unsplash.com/photo-1601011850287-43e30b7db748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'/>
-                                    </figure></a>";
-                                    echo "</div>";
-                                    echo "</main>";
-                                    echo "</div>"; 
-                                }
-                               } 
+
+                                if(($fecha_año > $resultadoano)){
+                                  echo "<div class='main__wrapper'>";
+                                  echo "<main>";
+                                  echo "<aside>";
+                                  echo "<div>";
+                                  echo "<div class='issue'>Cita#".$fila["idcitas"]." </div>";
+                                  echo "<div class='date'>Dia Programado: ".$fila["fechacita"]."</div>";
+                                  echo "<div class='edition'> a las ".$fila["horacita"]."</div>";
+                                  echo "</div>";
+                                  echo "</aside>";
+                                  echo "<div class='main-text' multi-column>";
+                                  echo "<p><b>Tratamiento:</b> ".$fila["tratamientocita"]."<br>
+                                  <b>Costo del Tratamiento:</b> Q".$fila["montocita"].".00<br>
+                                  <b>Monto a Pagar:</b> Q".$fila["montopagar"].".00<br>
+                                  <b>Dentista:</b> ".$fila["nombresden"]."<br>
+                                  </p></div><a class='terrarium' target='_blank'>
+                                  <figure class='smile'><img src='https://images.unsplash.com/photo-1601011850287-43e30b7db748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'/>
+                                  </figure></a>";
+                                  echo "</div>";
+                                  echo "</main>";
+                                  echo "</div>"; 
+                                } else if (($fecha_año = $resultadoano) && ($trim > $resultadomes)){
+                                  echo "<div class='main__wrapper'>";
+                                  echo "<main>";
+                                  echo "<aside>";
+                                  echo "<div>";
+                                  echo "<div class='issue'>Cita#".$fila["idcitas"]." </div>";
+                                  echo "<div class='date'>Dia Programado: ".$fila["fechacita"]."</div>";
+                                  echo "<div class='edition'> a las ".$fila["horacita"]."</div>";
+                                  echo "</div>";
+                                  echo "</aside>";
+                                  echo "<div class='main-text' multi-column>";
+                                  echo "<p><b>Tratamiento:</b> ".$fila["tratamientocita"]."<br>
+                                  <b>Costo del Tratamiento:</b> Q".$fila["montocita"].".00<br>
+                                  <b>Monto a Pagar:</b> Q".$fila["montopagar"].".00<br>
+                                  <b>Dentista:</b> ".$fila["nombresden"]."<br>
+                                  </p></div><a class='terrarium' target='_blank'>
+                                  <figure class='smile'><img src='https://images.unsplash.com/photo-1601011850287-43e30b7db748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'/>
+                                  </figure></a>";
+                                  echo "</div>";
+                                  echo "</main>";
+                                  echo "</div>"; 
+                                } else if (($fecha_año = $resultadoano) && ($trim = $resultadomes) && ($fecha_dia > $resultadodia)) {
+                                  echo "<div class='main__wrapper'>";
+                                  echo "<main>";
+                                  echo "<aside>";
+                                  echo "<div>";
+                                  echo "<div class='issue'>Cita#".$fila["idcitas"]." </div>";
+                                  echo "<div class='date'>Dia Programado: ".$fila["fechacita"]."</div>";
+                                  echo "<div class='edition'> a las ".$fila["horacita"]."</div>";
+                                  echo "</div>";
+                                  echo "</aside>";
+                                  echo "<div class='main-text' multi-column>";
+                                  echo "<p><b>Tratamiento:</b> ".$fila["tratamientocita"]."<br>
+                                  <b>Costo del Tratamiento:</b> Q".$fila["montocita"].".00<br>
+                                  <b>Monto a Pagar:</b> Q".$fila["montopagar"].".00<br>
+                                  <b>Dentista:</b> ".$fila["nombresden"]."<br>
+                                  </p></div><a class='terrarium' target='_blank'>
+                                  <figure class='smile'><img src='https://images.unsplash.com/photo-1601011850287-43e30b7db748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'/>
+                                  </figure></a>";
+                                  echo "</div>";
+                                  echo "</main>";
+                                  echo "</div>"; 
+                                } 
+                              } 
                             ?>
                         </section>
                         <div class="mItem">
